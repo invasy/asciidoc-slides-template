@@ -1,12 +1,18 @@
-﻿= Title Slide
+﻿= AsciiDoc Presentation Template
 Vasiliy Polyakov <invasy.v@gmail.com>
+v0.1.0, 2019-06-23
+// Metadata:
+:description: AsciiDoc presentation GitHub repository template +
+              with Travis CI for building and deployment to GitHub Pages
 :encoding: UTF-8
 :lang: ru
 :doctype: article
 :toclevels: 3
+// Sources:
 :imagesdir: images
 :icons: font
 :source-highlighter: highlightjs
+// Reveal.js:
 :revealjs_theme: night
 :revealjs_transition: slide
 :revealjs_backgroundTransition: slide

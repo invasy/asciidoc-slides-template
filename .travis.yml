@@ -1,21 +1,23 @@
-﻿language: minimal
-
+﻿language: ruby
+dist: xenial
+addons:
+  apt:
+    packages:
+    - graphviz
 env:
 - SLIDES_DIR=slides PDF_NAME=template
 
-services:
-- docker
-
-before_install:
-- docker pull asciidoctor/docker-asciidoctor
+install:
+- gem install asciidoctor
+- gem install asciidoctor-diagram
+- gem install asciidoctor-mathematical
+- gem install asciimath
+- gem install asciidoctor-revealjs
+- gem install asciidoctor-pdf
 
 script:
-- docker run --name=asciidoctor-revealjs --volume="$(pwd):/documents/" asciidoctor/docker-asciidoctor asciidoctor-revealjs --destination-dir "$SLIDES_DIR" index.adoc
-- docker run --name=asciidoctor-pdf --volume="$(pwd):/documents/" asciidoctor/docker-asciidoctor asciidoctor-pdf --out-file "${SLIDES_DIR}/${PDF_NAME}.pdf" index.adoc
-
-after_failure:
-- docker logs asciidoctor-revealjs
-- docker logs asciidoctor-pdf
+- asciidoctor-revealjs --destination-dir "$SLIDES_DIR" index.adoc
+- asciidoctor-pdf --out-file "${SLIDES_DIR}/${PDF_NAME}.pdf" index.adoc
 
 deploy:
   provider: pages
