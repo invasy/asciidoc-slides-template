@@ -1,4 +1,6 @@
-﻿env:
+﻿language: minimal
+
+env:
 - SLIDES_DIR=slides PDF_NAME=template
 
 services:
