@@ -4,22 +4,23 @@
 services:
 - docker
 
-jobs:
-  include:
-  - stage: build Reveal.js HTML
-    script:
-    - docker run --rm --volume="$(pwd):/documents/" asciidoctor/docker-asciidoctor asciidoctor-revealjs --destination-dir "$SLIDES_DIR" index.adoc
-  - stage: build PDF
-    script:
-    - docker run --rm --volume="$(pwd):/documents/" asciidoctor/docker-asciidoctor asciidoctor-pdf --out-file "${SLIDES_DIR}/${PDF_NAME}.pdf" index.adoc
-  - stage: deploy
-    script: skip
-    deploy:
-      provider: pages
-      github_token: $GITHUB_TOKEN
-      committer_from_gh: true
-      skip_cleanup: true
-      keep_history: true
-      local_dir: $SLIDES_DIR
-      on:
-        branch: master
+before_install:
+- docker pull asciidoctor/docker-asciidoctor
+
+script:
+- docker run --name=asciidoctor-revealjs --volume="$(pwd):/documents/" asciidoctor/docker-asciidoctor asciidoctor-revealjs --destination-dir "$SLIDES_DIR" index.adoc
+- docker run --name=asciidoctor-pdf --volume="$(pwd):/documents/" asciidoctor/docker-asciidoctor asciidoctor-pdf --out-file "${SLIDES_DIR}/${PDF_NAME}.pdf" index.adoc
+
+after_failure:
+- docker logs asciidoctor-revealjs
+- docker logs asciidoctor-pdf
+
+deploy:
+  provider: pages
+  github_token: $GITHUB_TOKEN
+  committer_from_gh: true
+  skip_cleanup: true
+  keep_history: true
+  local_dir: $SLIDES_DIR
+  on:
+    branch: master
