@@ -1,0 +1,24 @@
+﻿env:
+- SLIDES_DIR=slides PDF_NAME=template
+
+services:
+- docker
+
+jobs:
+  include:
+  - stage: build Reveal.js HTML
+    script:
+    - docker run --rm --volume="$(pwd):/documents/" asciidoctor/docker-asciidoctor asciidoctor-revealjs --destination-dir "$SLIDES_DIR" index.adoc
+  - stage: build PDF
+    script:
+    - docker run --rm --volume="$(pwd):/documents/" asciidoctor/docker-asciidoctor asciidoctor-pdf --out-file "${SLIDES_DIR}/${PDF_NAME}.pdf" index.adoc
+  - stage: deploy
+    deploy:
+      provider: pages
+      github_token: $GITHUB_TOKEN
+      committer_from_gh: true
+      skip_cleanup: true
+      keep_history: true
+      local_dir: $SLIDES_DIR
+      on:
+        branch: master

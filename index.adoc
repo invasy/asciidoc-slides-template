@@ -1,0 +1,49 @@
+﻿= Title Slide
+Vasiliy Polyakov <invasy.v@gmail.com>
+:encoding: UTF-8
+:lang: ru
+:doctype: article
+:toclevels: 3
+:imagesdir: images
+:icons: font
+:source-highlighter: highlightjs
+:revealjs_theme: night
+:revealjs_transition: slide
+:revealjs_backgroundTransition: slide
+:revealjs_slideNumber: true
+:revealjs_controls: false
+:revealjs_keyboard: true
+:revealjs_mouseWheel: true
+:revealjs_progress: false
+:revealjs_history: true
+:revealjs_center: false
+:revealjs_width: 1600
+:revealjs_height: 900
+:revealjs_showNotes: false
+:revealjs_help: true
+
+== Slide 1
+
+Text 1
+
+[.notes]
+--
+* Speaker notes
+* Slide 1
+--
+
+[%notitle]
+== Background Image
+image::bg.png[background, size=cover]
+
+== Source Code
+
+[source, python]
+----
+def hello(name):
+    print('Hello, {}'.format(name))
+
+if __name__ == '__main__':
+    hello('world')
+
+----
