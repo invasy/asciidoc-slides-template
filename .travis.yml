@@ -13,6 +13,7 @@ jobs:
     script:
     - docker run --rm --volume="$(pwd):/documents/" asciidoctor/docker-asciidoctor asciidoctor-pdf --out-file "${SLIDES_DIR}/${PDF_NAME}.pdf" index.adoc
   - stage: deploy
+    script: skip
     deploy:
       provider: pages
       github_token: $GITHUB_TOKEN
