@@ -34,7 +34,7 @@ Text 1
 
 [%notitle]
 == Background Image
-image::bg.png[background, size=cover]
+image::https://media.giphy.com/media/kas2Sw7Mnrq9i/giphy.gif[background, size=cover]
 
 == Source Code
 
