@@ -8,12 +8,14 @@ env:
 - SLIDES_DIR=slides PDF_NAME=template
 
 install:
-- gem install asciidoctor
-- gem install asciidoctor-diagram
-- gem install asciidoctor-mathematical
-- gem install asciimath
-- gem install asciidoctor-revealjs
-- gem install asciidoctor-pdf
+- gem install
+    asciidoctor
+    asciidoctor-diagram
+    asciimath
+    pango
+    asciidoctor-mathematical
+    asciidoctor-revealjs
+    asciidoctor-pdf
 
 script:
 - asciidoctor-revealjs --destination-dir "$SLIDES_DIR" index.adoc
