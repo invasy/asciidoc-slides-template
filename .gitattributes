@@ -1,0 +1,9 @@
+* text=auto
+
+.gitattributes text export-ignore
+.gitignore     text export-ignore
+
+*.yml  text
+*.adoc text
+
+*.pdf  binary

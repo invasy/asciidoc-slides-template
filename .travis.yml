@@ -1,4 +1,4 @@
-﻿language: ruby
+language: ruby
 dist: xenial
 addons:
   apt:
@@ -11,18 +11,21 @@ install:
 - gem install
     asciidoctor
     asciidoctor-diagram
-    asciimath
-    pango
     asciidoctor-mathematical
     asciidoctor-revealjs
-    pygments.rb
+    asciimath
+    pango
+    prawn-gmagick
+    rouge
 - gem install asciidoctor-pdf --pre
 
 script:
-- asciidoctor-revealjs --destination-dir "$SLIDES_DIR" index.adoc
+- asciidoctor-revealjs
+    --attribute revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/
+    --destination-dir "$SLIDES_DIR" index.adoc
 - asciidoctor-pdf
-  --require asciidoctor-mathematical --attribute mathematical-format=svg
-  --out-file "${SLIDES_DIR}/${PDF_NAME}.pdf" index.adoc
+    --require asciidoctor-mathematical --attribute mathematical-format=svg
+    --out-file "${SLIDES_DIR}/${PDF_NAME}.pdf" index.adoc
 
 deploy:
   provider: pages
@@ -33,3 +36,11 @@ deploy:
   local_dir: $SLIDES_DIR
   on:
     branch: master
+
+notifications:
+  webhooks:
+    urls:
+    - $GITTER_WEBHOOK
+    on_success: change
+    on_failure: always
+    on_start: never

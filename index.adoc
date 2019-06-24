@@ -1,18 +1,20 @@
-﻿= AsciiDoc Presentation Template
+= AsciiDoc Presentation Template
 Vasiliy Polyakov <invasy.v@gmail.com>
-v0.1.0, 2019-06-23
+v0.1.0, 2019-06-24
 // Metadata:
 :description: AsciiDoc presentation GitHub repository template +
               with Travis CI for building and deployment to GitHub Pages
 :encoding: UTF-8
 :lang: ru
 :doctype: article
-:toclevels: 3
 // Sources:
 :imagesdir: images
 :icons: font
+// Backend attributes:
+ifdef::backend-revealjs[]
 :source-highlighter: highlightjs
-// Reveal.js:
+:revealjs_width: 1600
+:revealjs_height: 900
 :revealjs_theme: night
 :revealjs_transition: slide
 :revealjs_backgroundTransition: slide
@@ -23,10 +25,13 @@ v0.1.0, 2019-06-23
 :revealjs_progress: false
 :revealjs_history: true
 :revealjs_center: false
-:revealjs_width: 1600
-:revealjs_height: 900
 :revealjs_showNotes: false
 :revealjs_help: true
+endif::[]
+ifdef::backend-pdf[]
+:toclevels: 3
+:source-highlighter: rouge
+endif::[]
 
 == Slide 1
 

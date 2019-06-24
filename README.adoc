@@ -1,7 +1,7 @@
-﻿= AsciiDoc Presentation Template
+= AsciiDoc Presentation Template
 Vasiliy Polyakov <invasy.v@gmail.com>
 
-image:https://travis-ci.com/invasy/presentation-asciidoc.svg?branch=master["Build Status", link="https://travis-ci.com/invasy/presentation-asciidoc"]
+image:https://travis-ci.com/invasy/slides-asciidoc.svg?branch=master["Build Status", link="https://travis-ci.com/invasy/slides-asciidoc"]
 
 == Links
 * https://asciidoctor.org/[AsciiDoctor] — A fast text processor & publishing toolchain for converting AsciiDoc to HTML5, DocBook & more
