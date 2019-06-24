@@ -17,11 +17,13 @@ install:
     asciidoctor-revealjs
     asciimath
 - gem install asciidoctor-pdf --pre
+- git clone https://github.com/hakimel/reveal.js.git "$SLIDES_DIR/reveal.js"
+- pushd "$SLIDES_DIR/reveal.js"
+- npm install
+- popd
 
 script:
-- asciidoctor-revealjs
-    --attribute revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/
-    --destination-dir "$SLIDES_DIR" index.adoc
+- asciidoctor-revealjs --destination-dir "$SLIDES_DIR" index.adoc
 - asciidoctor-pdf
     --require asciidoctor-mathematical --attribute mathematical-format=svg
     --out-file "${SLIDES_DIR}/${PDF_NAME}.pdf" index.adoc
