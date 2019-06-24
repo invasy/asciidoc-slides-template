@@ -9,14 +9,14 @@ env:
 
 install:
 - gem install
+    pango
+    prawn-gmagick
+    rouge
     asciidoctor
     asciidoctor-diagram
     asciidoctor-mathematical
     asciidoctor-revealjs
     asciimath
-    pango
-    prawn-gmagick
-    rouge
 - gem install asciidoctor-pdf --pre
 
 script:
