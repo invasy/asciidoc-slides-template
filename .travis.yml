@@ -17,7 +17,7 @@ install:
     asciidoctor-revealjs
     asciimath
 - gem install asciidoctor-pdf --pre
-- pushd "$SLIDES_DIR"
+- mkdir -p "$SLIDES_DIR" && pushd "$SLIDES_DIR"
   && git submodule add https://github.com/hakimel/reveal.js.git reveal.js
   && popd
 - pushd "$SLIDES_DIR/reveal.js" && npm install && popd
