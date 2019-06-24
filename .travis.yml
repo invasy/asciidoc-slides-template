@@ -17,9 +17,7 @@ install:
     asciidoctor-revealjs
     asciimath
 - gem install asciidoctor-pdf --pre
-- mkdir -p "$SLIDES_DIR" && pushd "$SLIDES_DIR"
-  && git submodule add https://github.com/hakimel/reveal.js.git reveal.js
-  && popd
+- git clone https://github.com/hakimel/reveal.js.git "$SLIDES_DIR/reveal.js"
 - pushd "$SLIDES_DIR/reveal.js" && npm install && popd
 
 script:
@@ -41,7 +39,7 @@ deploy:
 notifications:
   webhooks:
     urls:
-    - $GITTER_WEBHOOK
+    - https://webhooks.gitter.im/e/53fff180b8297a794065
     on_success: change
     on_failure: always
     on_start: never
