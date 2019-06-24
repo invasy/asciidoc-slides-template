@@ -10,7 +10,6 @@ env:
 install:
 - gem install
     pango
-    prawn-gmagick
     rouge
     asciidoctor
     asciidoctor-diagram
