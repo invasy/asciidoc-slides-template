@@ -4,6 +4,7 @@ Vasiliy Polyakov <invasy.v@gmail.com>
 image:https://travis-ci.com/invasy/slides-asciidoc.svg?branch=master["Build Status", link="https://travis-ci.com/invasy/slides-asciidoc"]
 
 == Links
+
 * https://asciidoctor.org/[AsciiDoctor] — A fast text processor & publishing toolchain for converting AsciiDoc to HTML5, DocBook & more
 * https://revealjs.com/[Reveal.js] — The HTML Presentation Framework
 * https://travis-ci.com/[Travis CI] — The simplest way to test and deploy your projects

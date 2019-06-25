@@ -41,13 +41,13 @@ deploy:
 notifications:
   slack:
     rooms:
-      secure: "Vj5DFMr1+p+7jLoBxIfjUY30csRXuEfHBfbsBM7b/+iZbUp39w8uvXscaTSRbm4IU1uRPLPJANyrE+Dz1V096qVbrjYE0U1I1tQJy6uxCwFXkYdSqbh8jOvzP7uC+sa2WvcK+COg9lG6Z35rd8Nmp8EZ6KA5PY75hZYaFBdYCx0rliQQ4VQnTVeuLYO+gtr2pvltCpkOSkxEDafPgWJX9UowYtnYrdcXP+jKlqEQyEDxtTxjNfugV3GC5zT4aEd4lGuVQTTfF2S6OBlSlBF8n9TQGld+Ii8GZLxbTkYBAXb3563NxY74MPdOv+XWRsn3U3iG8Q7hplBFvy/sWBrmEf1Z7HDJHUJjK+29Sv+OxyhlV5xgbnRQSVFeqSJvkoBnRyYZY+PxwAaTG3j4Rfmm6RMdL7sbwExLEe56flWieow+KvA5iDtl2Lulk1IwGgQX31Q1sc3YBX0U9JnTikyhzagM9tCjyOW0z11oFXdJZ0zR5dL2PvnBJkjy3lvXP9SKSGtJD1WGDSULINHYzaQc+ZOkzAVgCITmeLtI63ClmsnpzsxZa9H2Lx1p2BtXBcNbk0ydHDLbkyUDLjmWQDPkEtQHDRKeSaGzp9jCRKXjT/xQhgEd5uLh5iTvug57TyfmAikoy8G9MdhlR1aZX6L4RgSqydIpzQHhzHLPy43OlHo="
-    on_start: never
-    on_success: always
-    on_failure: always
-  webhooks:
-    urls:
-      secure: "Y1z18ykmqGIfTDSyjoGDkF7h36KWIITuVaAuMoBvYSUJD04o9V4uUMiP0Nu1onEbz2kdMr0g7+g2l7qM+yjQMbYZ/ltqghys597MsJK/XYsniIxWPTSPjGa+MGl9bmr3w6VTCyYKCHHSglfUBpsvkUy64mP3ZxyPparYS0VM4VNEz7iNq/jdwU+ZW+qnu/McilMXFLxqUfYMUaXyv5NTwWcScfsj/4kJsmBLtAI2vWwEKBzCPQdCVQNmPRHLXHw/OW8eKn6QHvxgyO1V5M5YU2B0kWsSL9EMuwbwdVQtO7nCB7bYHDMiUFcp7RDokSYQRYawVGXjR2MOFYGropFxLqEfl0wBasrUtkWjdA6DaNDUIKsLch6X+zfCUQANf52NoBc0dB8TTlD02SQuCRHBmQ5ei5F3vb1GP34PdO5JaA4whPleRBS4qeUPZ1IiBxONkdu4Gm86Cij2JohqRjrc57/JI75qPcCUV4mpezH6UErxSw9zKIFAFe/LZHhMX81tkuZOz2EPYNOyUByk5WzvE0E8jFLGGOSs1J7l7qWLjQ/pbMjtQ0Bwozq+8EujdJFnLxz8gajzj+rbO1MEHl6WBhL0PGHJOZIpftk/B+k01tFMgnEN9L30wA6VXl6IGTEJydvcddPYxZiLZwiK+gjRcKviPIaupC8MTmzqnsMwzUY="
+    - secure: "Vj5DFMr1+p+7jLoBxIfjUY30csRXuEfHBfbsBM7b/+iZbUp39w8uvXscaTSRbm4IU1uRPLPJANyrE+Dz1V096qVbrjYE0U1I1tQJy6uxCwFXkYdSqbh8jOvzP7uC+sa2WvcK+COg9lG6Z35rd8Nmp8EZ6KA5PY75hZYaFBdYCx0rliQQ4VQnTVeuLYO+gtr2pvltCpkOSkxEDafPgWJX9UowYtnYrdcXP+jKlqEQyEDxtTxjNfugV3GC5zT4aEd4lGuVQTTfF2S6OBlSlBF8n9TQGld+Ii8GZLxbTkYBAXb3563NxY74MPdOv+XWRsn3U3iG8Q7hplBFvy/sWBrmEf1Z7HDJHUJjK+29Sv+OxyhlV5xgbnRQSVFeqSJvkoBnRyYZY+PxwAaTG3j4Rfmm6RMdL7sbwExLEe56flWieow+KvA5iDtl2Lulk1IwGgQX31Q1sc3YBX0U9JnTikyhzagM9tCjyOW0z11oFXdJZ0zR5dL2PvnBJkjy3lvXP9SKSGtJD1WGDSULINHYzaQc+ZOkzAVgCITmeLtI63ClmsnpzsxZa9H2Lx1p2BtXBcNbk0ydHDLbkyUDLjmWQDPkEtQHDRKeSaGzp9jCRKXjT/xQhgEd5uLh5iTvug57TyfmAikoy8G9MdhlR1aZX6L4RgSqydIpzQHhzHLPy43OlHo="
+    template:
+    - "Build <%{build_url}|#%{build_number}> %{result} (%{duration})"
+    - "Repo: %{repository_slug} @ %{branch}"
+    - "Commit: <%{compare_url}|%{commit}> (%{commit_subject}) by %{author}"
+    - "Duration: %{duration}"
+    - "Elapsed time: %{elapsed_time}"
     on_start: never
     on_success: always
     on_failure: always
