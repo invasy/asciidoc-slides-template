@@ -8,7 +8,7 @@ addons:
 
 env:
   global:
-  - SLIDES_DIR=slides PDF_NAME=template
+  - REVEAL_VERSION=3.8.0 SLIDES_DIR=slides PDF_NAME=template
 
 install:
 - gem install
@@ -22,10 +22,9 @@ install:
 - gem install asciidoctor-pdf --pre
 - mkdir -p "$SLIDES_DIR"
 - pushd "$SLIDES_DIR"
-- curl -s https://api.github.com/repos/hakimel/reveal.js/releases/latest
-  | jq -cr '"--url " + .tarball_url + " --output reveal.js-" + .name + ".tar.gz"'
-  | xargs curl -L
-- tar xf reveal.js-*.tar.gz && mv reveal.js-* reveal.js
+- curl --location --url "https://api.github.com/repos/hakimel/reveal.js/tarball/${REVEAL_VERSION}" --output "reveal.js-${REVEAL_VERSION}.tar.gz"
+- tar xf "reveal.js-${REVEAL_VERSION}.tar.gz"
+- mv "reveal.js-${REVEAL_VERSION}" reveal.js
 - cd reveal.js
 - npm install
 - popd
