@@ -20,6 +20,7 @@ install:
     asciidoctor-revealjs
     asciimath
 - gem install asciidoctor-pdf --pre
+- mkdir -p "$SLIDES_DIR"
 - pushd "$SLIDES_DIR"
 - curl -s https://api.github.com/repos/hakimel/reveal.js/releases/latest
   | jq -cr '"--url " + .tarball_url + " --output reveal.js-" + .name + ".tar.gz"'
