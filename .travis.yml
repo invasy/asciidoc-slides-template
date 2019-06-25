@@ -4,6 +4,7 @@ addons:
   apt:
     packages:
     - graphviz
+    - jq
 
 env:
   global:
@@ -19,8 +20,14 @@ install:
     asciidoctor-revealjs
     asciimath
 - gem install asciidoctor-pdf --pre
-- git clone https://github.com/hakimel/reveal.js.git "$SLIDES_DIR/reveal.js"
-- pushd "$SLIDES_DIR/reveal.js" && npm install && popd
+- pushd "$SLIDES_DIR"
+- curl -s https://api.github.com/repos/hakimel/reveal.js/releases/latest
+  | jq -cr '"--url " + .tarball_url + " --output reveal.js-" + .name + ".tar.gz"'
+  | xargs curl -L
+- tar xf reveal.js-*.tar.gz && mv reveal.js-* reveal.js
+- cd reveal.js
+- npm install
+- popd
 
 script:
 - asciidoctor-revealjs --destination-dir "$SLIDES_DIR" index.adoc
@@ -41,7 +48,7 @@ deploy:
 notifications:
   slack:
     rooms:
-    - "$SLACK_TOKEN"
+    - secure: "Vj5DFMr1+p+7jLoBxIfjUY30csRXuEfHBfbsBM7b/+iZbUp39w8uvXscaTSRbm4IU1uRPLPJANyrE+Dz1V096qVbrjYE0U1I1tQJy6uxCwFXkYdSqbh8jOvzP7uC+sa2WvcK+COg9lG6Z35rd8Nmp8EZ6KA5PY75hZYaFBdYCx0rliQQ4VQnTVeuLYO+gtr2pvltCpkOSkxEDafPgWJX9UowYtnYrdcXP+jKlqEQyEDxtTxjNfugV3GC5zT4aEd4lGuVQTTfF2S6OBlSlBF8n9TQGld+Ii8GZLxbTkYBAXb3563NxY74MPdOv+XWRsn3U3iG8Q7hplBFvy/sWBrmEf1Z7HDJHUJjK+29Sv+OxyhlV5xgbnRQSVFeqSJvkoBnRyYZY+PxwAaTG3j4Rfmm6RMdL7sbwExLEe56flWieow+KvA5iDtl2Lulk1IwGgQX31Q1sc3YBX0U9JnTikyhzagM9tCjyOW0z11oFXdJZ0zR5dL2PvnBJkjy3lvXP9SKSGtJD1WGDSULINHYzaQc+ZOkzAVgCITmeLtI63ClmsnpzsxZa9H2Lx1p2BtXBcNbk0ydHDLbkyUDLjmWQDPkEtQHDRKeSaGzp9jCRKXjT/xQhgEd5uLh5iTvug57TyfmAikoy8G9MdhlR1aZX6L4RgSqydIpzQHhzHLPy43OlHo="
     template:
     - "Build <%{build_url}|#%{build_number}> *%{result}* in %{duration}"
     - "Repo: <https://github.com/%{repository_slug}|%{repository_slug}>@<https://github.com/%{repository_slug}/tree/%{branch}|%{branch}>"

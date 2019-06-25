@@ -1,0 +1,41 @@
+{
+  "url": "https://api.github.com/repos/hakimel/reveal.js/releases/15450043",
+  "assets_url": "https://api.github.com/repos/hakimel/reveal.js/releases/15450043/assets",
+  "upload_url": "https://uploads.github.com/repos/hakimel/reveal.js/releases/15450043/assets{?name,label}",
+  "html_url": "https://github.com/hakimel/reveal.js/releases/tag/3.8.0",
+  "id": 15450043,
+  "node_id": "MDc6UmVsZWFzZTE1NDUwMDQz",
+  "tag_name": "3.8.0",
+  "target_commitish": "master",
+  "name": "3.8.0",
+  "draft": false,
+  "author": {
+    "login": "hakimel",
+    "id": 629429,
+    "node_id": "MDQ6VXNlcjYyOTQyOQ==",
+    "avatar_url": "https://avatars0.githubusercontent.com/u/629429?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/hakimel",
+    "html_url": "https://github.com/hakimel",
+    "followers_url": "https://api.github.com/users/hakimel/followers",
+    "following_url": "https://api.github.com/users/hakimel/following{/other_user}",
+    "gists_url": "https://api.github.com/users/hakimel/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/hakimel/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/hakimel/subscriptions",
+    "organizations_url": "https://api.github.com/users/hakimel/orgs",
+    "repos_url": "https://api.github.com/users/hakimel/repos",
+    "events_url": "https://api.github.com/users/hakimel/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/hakimel/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "prerelease": false,
+  "created_at": "2019-04-01T12:34:10Z",
+  "published_at": "2019-04-01T13:17:36Z",
+  "assets": [
+
+  ],
+  "tarball_url": "https://api.github.com/repos/hakimel/reveal.js/tarball/3.8.0",
+  "zipball_url": "https://api.github.com/repos/hakimel/reveal.js/zipball/3.8.0",
+  "body": "**Changes:**\r\n- The cursor is now automatically hidden after five seconds of inactivity. The timeout can be adjusted with `hideCursorTime: <milliseconds>`, or you can disable the feature entirely with `hideInactiveCursor: false`.\r\n- Presentations can be zoomed on touch devices using the standard pinch-to-zoom gestures.\r\n- New `navigationMode: <default/linear/grid>` config option. Set to \"grid\" to navigate across adjacent vertical stacks. [Learn more in the docs](https://github.com/hakimel/reveal.js/blob/master/README.md#navigation-mode). (#2307)\r\n- New `hash: <boolean>` config option. When set to true, reveal.js will reflect the current slide in the address bar **without** pushing each slide change to the browser history. (#2286 by @asottile)\r\n- New `preloadIframes` config option for flagging if iframes should be preloaded or not. Can be set per-frame using the `data-preload` attribute. [More info](https://github.com/hakimel/reveal.js/blob/master/README.md#lazy-loading-iframes). (#2354 by @maxrothman)\r\n- A `resize` event is now dispatched anytime the presentation scale changes. (#2300 by @mw75)\r\n- The \"Resume\" button in the pause overlay is hidden if `controls` are set to false. (#2215 by @anderslemke)\r\n- New keyboard shortcut: CMD/CTRL + left or right arrow to go to first or last slide.\r\n- Adds `Reveal.getRevealElement()` for retrieving the presentation's root element (`<div class=\"reveal\">`).\r\n- Removes Head JS as it is no longer required to load dependencies.\r\n- Removes classList polyfill since browser support caught up.\r\n- Removes the reset styles from reveal.css to make styles easier to override. Reset styles are now included as a separate reset.css file. (6abc6e00581e66690416978de118145e854c3c1e #1952 & #2248)\r\n- The zoom transition now zooms between all slides, previously it zoomed between horizontal slides and used a slide transition between vertical.\r\n- Upgrade to Socket.IO 2.2.0.\r\n\r\n**Plugin Changes:**\r\n- Adds a new API for registering plugins `Reveal.registerPlugin( 'myPlugin', MyPluginInstance )`. If a registered plugin returns a promise when initialized, reveal.js will wait for that promise to be fulfilled before firing the ready event. [Learn more in the docs.](https://github.com/hakimel/reveal.js/blob/master/README.md#plugins)\r\n- Code highlighting: Support for [line numbers](https://github.com/hakimel/reveal.js/blob/master/README.md#line-numbers--highlights)! Just add `data-line-numbers` to your code blocks.\r\n- Code highlighting: Highlight specific lines by providing a comma separated list of line numbers to `data-line-numbers`. Line ranges, like 5-15, are supported too.\r\n- Speaker view: No longer requires a web server, it now works when opened directly from the filesystem. (#2104 by @jurca)\r\n- Markdown: External .md files are now loaded asynchronously.\r\n- Markdown: Upgrade to marked 0.6.0. (@sestegra)\r\n- MathJax config options can now be set via the reveal.js `math` config option. (#2090 by @bnjmnt4n)\r\n\r\n**Bug fixes:**\r\n- Fixes npm security warnings by updating all dependencies.\r\n- Fixes an issue that prevented the same internal link from being clicked twice. (#2350 by @rparree)\r\n- Fixes an issue with data-transition not working on vertical slides. (b6ce0a9724f123396b59e9b7b90ab2d44dda2534 #1947)\r\n- Fixes an issue that needless caused the slide method—and all of its corresponding performance heavy DOM operations—to be invoked twice for each slide change. (#2263 by @mbotsch)\r\n- Fixes a layout bug with overlaid speaker notes when reveal.js is smaller than the browser window.\r\n- Fixes an error that caused `Reveal.getProgress()` to return a value higher than 1 when there were fragments on the last slide.\r\n- The speaker view no longer stops working when opened multiple times. (#2251 by @oyron)\r\n- Prevents presentations from overflowing vertically in some mobile browsers.\r\n- Elements using `.stretch` now show up in the overview mode. (@sanand0)\r\n\r\n[And more...](https://github.com/hakimel/reveal.js/compare/3.7.0...3.8.0)"
+}
