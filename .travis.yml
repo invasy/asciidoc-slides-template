@@ -4,7 +4,6 @@ addons:
   apt:
     packages:
     - graphviz
-    - jq
 
 env:
   global:
@@ -20,12 +19,10 @@ install:
     asciidoctor-revealjs
     asciimath
 - gem install asciidoctor-pdf --pre
-- mkdir -p "$SLIDES_DIR"
-- pushd "$SLIDES_DIR"
-- curl --location --url "https://api.github.com/repos/hakimel/reveal.js/tarball/${REVEAL_VERSION}" --output "reveal.js-${REVEAL_VERSION}.tar.gz"
-- tar xf "reveal.js-${REVEAL_VERSION}.tar.gz"
-- mv "reveal.js-${REVEAL_VERSION}" reveal.js
-- cd reveal.js
+- mkdir -p "$SLIDES_DIR" && pushd "$SLIDES_DIR"
+- curl --location --url "https://github.com/hakimel/reveal.js/archive/${REVEAL_VERSION}.tar.gz" --output "reveal.js-${REVEAL_VERSION}.tar.gz"
+- tar --extract --ungzip --file="reveal.js-${REVEAL_VERSION}.tar.gz"
+- mv "reveal.js-${REVEAL_VERSION}" reveal.js && cd reveal.js
 - npm install
 - popd
 
